@@ -1,1 +1,1 @@
-console.log("it works");
+document.querySelector("#content"),document.body.insertBefore(function(){const e=document.createElement("header");return e.innerHTML="this is a header",e}(),document.body.firstChild),document.body.appendChild(function(){const e=document.createElement("footer");return e.innerHTML="this is a footer",e}());
