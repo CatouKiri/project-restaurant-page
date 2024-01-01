@@ -1,6 +1,7 @@
 import './style.css';
 
 const content = document.querySelector("#content");
+
 function header() {
   const header = document.createElement('header');
   const h1 = document.createElement('h1');
@@ -15,13 +16,14 @@ function header() {
   button2.innerHTML = "MENU";
   button3.innerHTML = "CONTACT";
 
+  content.appendChild(header);
   header.appendChild(h1);
   header.appendChild(buttonContainer);
   buttonContainer.appendChild(button1);
   buttonContainer.appendChild(button2);
   buttonContainer.appendChild(button3);
 
-  return header;
+  return content;
 }
 
 function footer() {
