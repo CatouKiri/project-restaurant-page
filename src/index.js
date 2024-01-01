@@ -1,19 +1,25 @@
-const content = document.querySelector("#content");
+import './style.css';
 
+const content = document.querySelector("#content");
 function header() {
   const header = document.createElement('header');
   const h1 = document.createElement('h1');
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('buttonContainer');
   const button1 = document.createElement('button');
   const button2 = document.createElement('button');
+  const button3 = document.createElement('button');
 
-  header.innerHTML = "this is a header";
-  h1.innerHTML = "this is an h1";
-  button1.innerHTML = "this is a button";
-  button2.innerHTML = "this is another  button";
+  h1.innerHTML = "JOLLYNASAL";
+  button1.innerHTML = "HOME";
+  button2.innerHTML = "MENU";
+  button3.innerHTML = "CONTACT";
 
   header.appendChild(h1);
-  header.appendChild(button1);
-  header.appendChild(button2);
+  header.appendChild(buttonContainer);
+  buttonContainer.appendChild(button1);
+  buttonContainer.appendChild(button2);
+  buttonContainer.appendChild(button3);
 
   return header;
 }
