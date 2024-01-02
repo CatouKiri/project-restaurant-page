@@ -15,16 +15,35 @@ body {
     font-family: 'Roboto-Regular';
 }
 
+#content {
+  /* margin: 0px; */
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+main {
+  flex:1;
+}
+
 header {
-    font-family: 'Roboto-Regular';
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #ffaa4f;
 }
 
+footer {
+  background-color: #000000;
+  color: #ffaa4f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
 .buttonContainer {
-    font-family: 'Roboto-Regular';
     display: flex;
     gap: 20px;
     margin-bottom: 20px;

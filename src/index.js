@@ -26,13 +26,25 @@ function header() {
   return content;
 }
 
-function footer() {
-  const element = document.createElement('footer');
+function main() {
+  const main = document.createElement('main');
+  main.innerHTML = "this is main";
 
-  element.innerHTML = "this is a footer";
+  content.appendChild(main);
 
-  return element;
+  return content;
 }
 
-document.body.insertBefore(header(), document.body.firstChild);
+function footer() {
+  const footer = document.createElement('footer');
+  footer.innerHTML = "Copyright © 2024 Ed Benedict Quia";
+
+  content.appendChild(footer);
+
+  return content;
+}
+
+// document.body.insertBefore(header(), document.body.firstChild);
+document.body.appendChild(header());
+document.body.appendChild(main());
 document.body.appendChild(footer());
