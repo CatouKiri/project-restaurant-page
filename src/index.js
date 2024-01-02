@@ -11,7 +11,7 @@ function header() {
   const button2 = document.createElement('button');
   const button3 = document.createElement('button');
 
-  h1.innerHTML = "JOLLYNASAL";
+  h1.innerHTML = "SIRENAS BUNTOT";
   button1.innerHTML = "HOME";
   button2.innerHTML = "MENU";
   button3.innerHTML = "CONTACT";
@@ -28,7 +28,7 @@ function header() {
 
 function main() {
   const main = document.createElement('main');
-  main.innerHTML = "this is main";
+  main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
 
   content.appendChild(main);
 
