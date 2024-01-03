@@ -1,4 +1,5 @@
 import './style.css';
+import contactPage from './contact.js';
 
 const content = document.querySelector("#content");
 
@@ -7,44 +8,57 @@ function header() {
   const h1 = document.createElement('h1');
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('buttonContainer');
-  const button1 = document.createElement('button');
-  const button2 = document.createElement('button');
-  const button3 = document.createElement('button');
-
   h1.innerHTML = "SIRENAS BUNTOT";
-  button1.innerHTML = "HOME";
-  button2.innerHTML = "MENU";
-  button3.innerHTML = "CONTACT";
 
-  content.appendChild(header);
+  let home = createButton("HOME");
+  home.setAttribute("id","home");
+  // home.addEventListener('click', e => {
+  //   printMe();
+  //   home.disabled = true;
+  // })
+
+  let menu = createButton("MENU");
+  menu.setAttribute("id","menu");
+
+  let contact = createButton("CONTACT");
+  contact.setAttribute("id","contact");
+  contact.addEventListener('click', e => {
+    contactPage();
+    contact.disabled = true;
+  })
+
   header.appendChild(h1);
   header.appendChild(buttonContainer);
-  buttonContainer.appendChild(button1);
-  buttonContainer.appendChild(button2);
-  buttonContainer.appendChild(button3);
+  buttonContainer.appendChild(home);
+  buttonContainer.appendChild(menu);
+  buttonContainer.appendChild(contact);
 
-  return content;
+  return header;
+}
+
+function createButton(text) {
+  const button = document.createElement('button');
+  button.innerHTML = text;
+
+  return button;
 }
 
 function main() {
   const main = document.createElement('main');
+  main.setAttribute('id','main');
   main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
 
-  content.appendChild(main);
-
-  return content;
+  return main;
 }
 
 function footer() {
   const footer = document.createElement('footer');
   footer.innerHTML = "Copyright © 2024 Ed Benedict Quia";
 
-  content.appendChild(footer);
-
-  return content;
+  return footer;
 }
 
-// document.body.insertBefore(header(), document.body.firstChild);
-document.body.appendChild(header());
-document.body.appendChild(main());
-document.body.appendChild(footer());
+content.appendChild(header());
+content.appendChild(main());
+content.appendChild(footer());
+
