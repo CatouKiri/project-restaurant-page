@@ -18,9 +18,13 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto-Regular';
-    background-image: url(./bg-img.jpg);
+    background-image: url(./imgs/bg-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#menuItem {
+  width: 250px;
 }
 
 #content {

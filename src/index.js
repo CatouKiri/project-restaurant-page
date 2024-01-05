@@ -1,5 +1,6 @@
 import './style.css';
 import contactPage from './contact.js';
+import menuPage from './menu.js';
 
 const content = document.querySelector("#content");
 
@@ -19,6 +20,11 @@ function header() {
 
   let menu = createButton("MENU");
   menu.setAttribute("id","menu");
+  menu.addEventListener('click', e => {
+    menuPage();
+    menu.disabled = true;
+    // console.log('aaa');
+  })
 
   let contact = createButton("CONTACT");
   contact.setAttribute("id","contact");
