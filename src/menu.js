@@ -3,45 +3,56 @@ import sushi2 from './imgs/sushiWithRedSauce.jpg';
 import sushi3 from './imgs/sushiWithOrangeToppings.jpg';
 import sushi4 from './imgs/sushiWhiteAndRedSaucewithLeaves.jpg';
 
-export default function menuPage() {
-    const main = document.getElementById('main');
-    main.textContent = "";
+const menuItem = [
+  {
+    name: "sushi",
+    imgSrc: sushi1
+  },
+  {
+    name: "sushi with ketchup",
+    imgSrc: sushi2
+  },
+  {
+    name: "orange toppings sushi",
+    imgSrc: sushi3
+  },
+  {
+    name: "sushi with leaves",
+    imgSrc: sushi4
+  },
+];
 
-    const h1 = document.createElement('h1');
-    // const menuItemContainer = document.createElement('div');
-    // const img = document.createElement('img');
-    // const p = document.createElement('p');
+function displayMenuItem() {
+  const wholeMenuContainer = document.createElement('div');
 
-    h1.innerHTML = "Menu";
-    main.appendChild(h1);
+  for (const item of menuItem) {
+    const menuItemContainer = document.createElement('div');
 
-    const menuItemContainer1 = createMenuItemContainer();
-    const img1 = createImage(sushi1);
-    const p1 = createParagraph('sushi');
-    main.appendChild(menuItemContainer1);
-    menuItemContainer1.appendChild(img1);
-    menuItemContainer1.appendChild(p1);
-
-
-    return main;
-  }
-
-  function createMenuItemContainer() {
-    const div = document.createElement('div');
-    return div;
-  }
-
-  function createImage(url) {
     const img = document.createElement('img');
-    img.setAttribute("id","menuItem");
-    img.src = url;
+    img.setAttribute("id", "menuItem");
+    img.src = item.imgSrc;
 
-    return img;
-  }
-
-  function createParagraph(text) {
     const p = document.createElement('p');
-    p.innerHTML = text;
+    p.innerHTML = item.name;
 
-    return p;
+    menuItemContainer.appendChild(img);
+    menuItemContainer.appendChild(p);
+    wholeMenuContainer.appendChild(menuItemContainer);
   }
+
+  return wholeMenuContainer;
+}
+
+export default function menuPage() {
+  const main = document.getElementById('main');
+  main.textContent = "";
+
+  const h1 = document.createElement('h1');
+  const wholeMenuContainer = displayMenuItem();
+
+  h1.innerHTML = "Menu";
+  main.appendChild(h1);
+  main.appendChild(wholeMenuContainer);
+
+  return main;
+}
