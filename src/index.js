@@ -4,67 +4,58 @@ import menuPage from './menu.js';
 
 const content = document.querySelector("#content");
 
-function header() {
-  const header = document.createElement('header');
-  const h1 = document.createElement('h1');
-  const buttonContainer = document.createElement('div');
-  buttonContainer.classList.add('buttonContainer');
-  h1.innerHTML = "SIRENAS BUNTOT";
-
-  let home = createButton("HOME");
-  home.setAttribute("id","home");
-  // home.addEventListener('click', e => {
-  //   printMe();
-  //   home.disabled = true;
-  // })
-
-  let menu = createButton("MENU");
-  menu.setAttribute("id","menu");
-  menu.addEventListener('click', e => {
-    menuPage();
-    menu.disabled = true;
-    // console.log('aaa');
-  })
-
-  let contact = createButton("CONTACT");
-  contact.setAttribute("id","contact");
-  contact.addEventListener('click', e => {
-    contactPage();
-    contact.disabled = true;
-  })
-
-  header.appendChild(h1);
-  header.appendChild(buttonContainer);
-  buttonContainer.appendChild(home);
-  buttonContainer.appendChild(menu);
-  buttonContainer.appendChild(contact);
-
-  return header;
+function createButton(text, id, clickHandler) {
+    const button = document.createElement('button');
+    button.innerHTML = text;
+    button.setAttribute("id", id);
+    button.addEventListener('click', clickHandler);
+    return button;
 }
 
-function createButton(text) {
-  const button = document.createElement('button');
-  button.innerHTML = text;
+function header() {
+    const header = document.createElement('header');
+    const h1 = document.createElement('h1');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('buttonContainer');
+    h1.innerHTML = "SIRENAS BUNTOT";
 
-  return button;
+    const home = createButton("HOME", "home", () => disableAndLoad(homePage, home));
+    const menu = createButton("MENU", "menu", () => disableAndLoad(menuPage, menu));
+    const contact = createButton("CONTACT", "contact", () => disableAndLoad(contactPage, contact));
+
+    header.appendChild(h1);
+    header.appendChild(buttonContainer);
+    buttonContainer.append(home, menu, contact);
+
+    return header;
 }
 
 function main() {
-  const main = document.createElement('main');
-  main.setAttribute('id','main');
-  main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+    const main = document.createElement('main');
+    main.setAttribute('id', 'main');
+    main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+    return main;
+}
 
-  return main;
+function homePage() {
+    const main = document.getElementById('main');
+    main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
 }
 
 function footer() {
-  const footer = document.createElement('footer');
-  footer.innerHTML = "Copyright © 2024 Ed Benedict Quia";
+    const footer = document.createElement('footer');
+    footer.innerHTML = "Copyright © 2024 Ed Benedict Quia";
+    return footer;
+}
 
-  return footer;
+function disableAndLoad(pageFunction, clickedButton) {
+    const buttons = document.querySelectorAll('button');
+    pageFunction();
+    buttons.forEach(button => {
+        button.disabled = (button === clickedButton);
+    });
 }
 
 content.appendChild(header());
 content.appendChild(main());
 content.appendChild(footer());
-

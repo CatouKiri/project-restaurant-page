@@ -1,27 +1,35 @@
 export default function contactPage() {
-    const main = document.getElementById('main');
-    const h1 = document.createElement('h1');
-    const div = document.createElement('div');
+  const main = document.getElementById('main');
+  main.textContent = "";
 
-    main.textContent = "";
+  const h1 = document.createElement('h1');
+  h1.innerHTML = "Contact Us";
+  main.appendChild(h1);
 
-    h1.innerHTML = "Contact Us";
+  const div = createDivWithParagraphs([
+      "The Owner",
+      "+63912345678",
+      "theownersemail@gmail.com"
+  ]);
 
-    let p1 = createParagraph("The Owner");
-    let p2 = createParagraph("+63912345678");
-    let p3 = createParagraph("theownersemail@gmail.com");
+  main.appendChild(div);
 
-    main.appendChild(h1);
-    main.appendChild(div);
-    div.appendChild(p1);
-    div.appendChild(p2);
-    div.appendChild(p3);
-    return main;
+  return main;
+}
+
+function createDivWithParagraphs(paragraphTexts) {
+  const div = document.createElement('div');
+
+  for (const text of paragraphTexts) {
+      const p = createParagraph(text);
+      div.appendChild(p);
   }
 
-  function createParagraph(text) {
-    const p = document.createElement('p');
-    p.innerHTML = text;
+  return div;
+}
 
-    return p;
-  }
+function createParagraph(text) {
+  const p = document.createElement('p');
+  p.innerHTML = text;
+  return p;
+}

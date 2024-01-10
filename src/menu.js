@@ -23,13 +23,16 @@ const menuItem = [
 ];
 
 function displayMenuItem() {
-  const wholeMenuContainer = document.createElement('div');
+  // Create a container for the menu items
+  const menuContainer = document.createElement('div');
+  menuContainer.classList.add('menu-container');
 
   for (const item of menuItem) {
     const menuItemContainer = document.createElement('div');
+    menuItemContainer.classList.add('menu-item-container');
 
     const img = document.createElement('img');
-    img.setAttribute("id", "menuItem");
+    img.setAttribute("class", "menu-item");
     img.src = item.imgSrc;
 
     const p = document.createElement('p');
@@ -37,10 +40,10 @@ function displayMenuItem() {
 
     menuItemContainer.appendChild(img);
     menuItemContainer.appendChild(p);
-    wholeMenuContainer.appendChild(menuItemContainer);
+    menuContainer.appendChild(menuItemContainer);
   }
 
-  return wholeMenuContainer;
+  return menuContainer;
 }
 
 export default function menuPage() {
