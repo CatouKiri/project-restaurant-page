@@ -33,13 +33,21 @@ function header() {
 function main() {
     const main = document.createElement('main');
     main.setAttribute('id', 'main');
-    main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+    const h2 = document.createElement('h2');
+    h2.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+
+    main.appendChild(h2);
     return main;
 }
 
 function homePage() {
     const main = document.getElementById('main');
-    main.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+    main.textContent = "";
+
+    const h2 = document.createElement('h2');
+    h2.innerHTML = "BEST SEAFOOD IN THE COUNTRY";
+
+    main.appendChild(h2);
 }
 
 function footer() {

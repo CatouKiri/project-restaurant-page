@@ -8,8 +8,8 @@ export default function contactPage() {
 
   const div = createDivWithParagraphs([
       "The Owner",
-      "+63912345678",
-      "theownersemail@gmail.com"
+      "&nbsp;&nbsp;&nbsp;* +63912345678",
+      "&nbsp;&nbsp;&nbsp;* theownersemail@gmail.com"
   ]);
 
   main.appendChild(div);
@@ -30,6 +30,7 @@ function createDivWithParagraphs(paragraphTexts) {
 
 function createParagraph(text) {
   const p = document.createElement('p');
+  p.classList.add('contact-p');
   p.innerHTML = text;
   return p;
 }

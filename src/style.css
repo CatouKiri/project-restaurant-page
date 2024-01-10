@@ -71,9 +71,25 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Contact Paragraph Styles */
+.contact-p {
+  font-size: 2rem;
+}
+
+/* Menu Item Name Styles */
+.item-name-p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 /* Heading Styles */
-h1 {
+h1, h2 {
   font-family: 'Roboto-Black';
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
 }
 
 /* Button Styles */

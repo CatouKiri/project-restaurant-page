@@ -36,6 +36,7 @@ function displayMenuItem() {
     img.src = item.imgSrc;
 
     const p = document.createElement('p');
+    p.classList.add('item-name-p');
     p.innerHTML = item.name;
 
     menuItemContainer.appendChild(img);
